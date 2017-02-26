@@ -1,0 +1,107 @@
+  .bg, .wei{
+  	border: 1px solid greenyellow;
+  	width: 40vw;
+  	margin: 10vh auto;
+  	padding: 3rem;
+  }
+  input{
+  	/*去掉默认的input的样式*/
+  	display: none;  
+  }
+  h1{
+  	text-align: center;
+  }
+
+  /*背景图实现的方式*/
+  .bg input + i {
+  	/*设置display为行内-块元素*/
+  	display: inline-block;
+  	background-image: url(sprite.png);
+  	height: 32px;
+  	width: 32px;
+  	margin-left: -5px;
+  	margin-bottom: -10px;
+  }
+
+  /*没选中时使用的图片*/
+  #checkbox_1 + i {
+  	background-position: 0, 0;
+  }
+  #checkbox_2 + i {
+  	background-position: 0, 0;
+  }
+
+  /*选中时使用的图片*/
+  #checkbox_1:checked + i {
+  	background-position: -64px, 0;
+  }
+  #checkbox_2:checked + i {
+  	background-position: -64px, 0;
+  }
+
+  #radio_1 + i{
+  	background-position: -96px, 0;
+  }
+  #radio_2 + i{
+  	background-position: -96px, 0;
+  }
+
+  #radio_1:checked + i {
+  	background-position: -128px, 0;
+  }
+  #radio_2:checked + i {
+  	background-position: -128px, 0;
+  }
+
+
+  /*使用伪元素实现的方法*/
+  .wei input+i{
+  	width: 20px; height: 20px;
+  	border: 2px solid #ccc;
+  	display: inline-block;
+  	position: relative;
+  	margin-bottom: -8px;
+  	margin-left: -4px;
+  }
+
+  .wei input[type="radio"]+i{
+  	border-radius: 50%;
+  }
+
+  .wei input:checked+i{
+  	border-color: orange;
+  }
+  #checkbox_3:checked+i::after, #checkbox_4:checked+i::after {
+  	content: '';
+    position: absolute;
+    left: 6px;
+    top: 0;
+    width: 5px;
+    height: 15px;
+    border-style: solid;
+    border-top: 10px;
+    border-left: 20px;
+    border-color: orange;
+    display: inline-block;
+    /*翻转角度  更似对号*/
+    transform: rotate(45deg)
+  }
+
+  #radio_3:checked+i::after, #radio_4:checked+i::after {
+    content: '';
+    position: absolute;
+    /*居中*/
+    top: 50%;
+    left: 50%;
+    margin-left: -5px;
+    margin-top: -5px;
+    
+    width: 10px;
+    height: 10px;
+    
+    background: orange;
+
+    border-radius: 50%;
+  }
+
+

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动态数据(一)</title>
+</head>
+<body>
+<script>
+// 'use strict';
+var n = 023;
+	function foo1()
+{
+  return {
+      bar: "hello"
+  };
+}
+
+function foo2()
+{
+  return
+  {
+      bar: "hello"
+  };
+}
+console.log(foo1());
+console.log(foo2());
+</script>
+<!-- 
+	<script>
+		let data = {
+			user: {
+				name: "shenzhinian",
+				age: "22"
+			},
+			address: {
+				city: "shenzhen"
+			}
+		};
+
+		function Observer(data) {
+			this.data = data;
+			this.walk(data);
+		}
+		let p = Observer.prototype;
+
+		// 此函数用于深层次遍历对象的各个属性
+		// 采用的是递归的思路
+		// 因为我们要为对象的每一个属性绑定getter和setter
+		p.walk = function (obj) {
+			let val;
+			
+			// 这里为什么要用hasOwnProperty进行过滤呢？
+        	// 因为for...in 循环会把对象原型链上的所有可枚举属性都循环出来
+        	// 而我们想要的仅仅是这个对象本身拥有的属性，所以要这么做。
+			for(let key in obj) {
+				if (obj.hasOwnProperty(key)) {
+					val = obj[key];
+
+					 // 这里进行判断，如果还没有遍历到最底层，继续new Observer
+					if (typeof val === 'object') {
+						new Observer(val);
+					}
+
+					this.convert(key, val);
+				}
+			}
+		};
+
+		p.convert = function (key, val) {
+			Object.defineProperty(this.data, key, {
+				enumberable: true,
+				configurable: true,
+				get: function() {
+					console.log('你访问了' + key);
+					return val
+				},
+				set: function(newVal) {
+					console.log('你设置了' + key);
+					console.log('新的' + key + ' = ' + newVal);
+					if (newVal === val) { return; }
+
+					val = newVal
+				}
+			})
+		}
+
+		let app = new Observer(data);
+	</script> -->
+</body>
+</html>

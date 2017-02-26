@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义CheckBox，radio样式</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="bg">
+		<h1>背景图方式</h1>
+		<span>爱好: </span> 
+
+		<!-- label使用嵌入式  进行绑定 -->
+		<label>
+			<input type="checkbox" id="checkbox_1">Reading <i></i> 	
+		</label>
+
+		<!-- label使用for属性  进行绑定 -->
+		<label for="checkbox_2">Coding 		</label> 
+			<input type="checkbox" id="checkbox_2"><i></i> 
+		<!-- 这样会出现一个异常，   就是  i  标签在页面中，点击后不会有所反应 -->
+		<br>
+		
+		<span>性别: </span> 
+		<label>
+			<input type="radio" name="sex1" id="radio_1">man <i></i> 
+		</label>
+		<label>
+			<input type="radio" name="sex1" id="radio_2">woman <i></i> 
+		</label>
+	</div>
+	<div class="wei">
+		<h1>伪元素方式</h1>
+		<span>爱好: </span> 
+		<label>
+			<input type="checkbox" id="checkbox_3">Reading <i></i> 
+		</label>
+
+		<!-- label使用for属性  进行绑定 -->
+		<label for="checkbox_4">
+			<input type="checkbox" id="checkbox_4">Coding <i></i> 
+		</label>
+		<br>
+		<span>性别: </span> 
+		<label>
+			<input type="radio" name="sex2" id="radio_3" >man <i></i> 
+		</label>
+		<label>
+			<input type="radio" name="sex2" id="radio_4" >woman <i></i> 
+		</label>
+	</div>
+</body>
+</html>
