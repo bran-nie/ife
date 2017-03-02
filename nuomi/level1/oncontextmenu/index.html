@@ -3,8 +3,65 @@
 <head>
 	<meta charset="UTF-8">
 	<title>自定义网页右键菜单</title>
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	
+	<div id="newMenu">
+		<h1>自定义右键菜单</h1>
+		<p> 在这个背景div, 右键后，出现三个菜单，分别是、  重新加载、打开谷歌、打开必应 </p>
+	</div>
+    <div style="display: none;" id="contextMenu" class="menu">
+    	<ul>
+    		<li><a href=index.html>重新加载</a></li>
+    		<li><a href="https://google.com/ncr" target="_blank">打开谷歌</a></li>
+    		<li><a href="http://cn.bing.com/" target="_blank">打开必应</a></li>
+    	</ul>
+    </div>
+
+    <script>
+    	// 获取可视区宽度
+        const winWidth = function () {
+        	return document.documentElement.clientWidth || document.body.clientWidth;
+        }
+
+        // 使用函数的好处： 每次点击，都是返回 最新的可视区宽度/高度，而不是固定的。
+
+    	// 获取可视区高度
+    	const winHeight = function () {
+    		return document.documentElement.clientHeight || document.body.clientHeight;
+    	}
+
+    	// 绑定菜单列表 进行监听
+    	const menu = document.getElementById('contextMenu');
+
+    	document.addEventListener('click', function () {
+    		menu.style.display = 'none';
+    	});
+
+    	// 右击鼠标时执行的函数
+    	// 传入 event 对象
+    	const newMenu = document.getElementById('newMenu');
+    	newMenu.oncontextmenu = function (event) {
+    		var event = event || window.event;
+    		menu.style.display = 'block';
+    		var l, t;
+    		// 获取鼠标点击坐标
+    		l = event.pageX;
+    		t = event.pageY;
+    		
+    		// 判断鼠标点击的位置，是否可以放下菜单，不能就改变位置
+    		if (winWidth()-l < menu.offsetWidth)  l = l - menu.offsetWidth;
+    		else l = l;
+
+    		if (winHeight()-t < menu.offsetHeight) t = t - menu.offsetHeight;
+    		else t = t;
+
+    		menu.style.left = l + 'px';
+    		menu.style.top = t + 'px';
+
+    		// return FALSE 是为了禁用原本的右键菜单
+    		return false;
+    	}
+    </script>
 </body>
 </html>

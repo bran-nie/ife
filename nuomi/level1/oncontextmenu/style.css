@@ -1,0 +1,45 @@
+		*{
+			margin: 0;
+			padding: 0;
+		}
+
+		#newMenu {
+			background-color: yellowgreen;
+			border: 1px solid #ccc;
+			border-radius: 20px 40px 20px 40px;
+		}
+
+		h1{
+			text-align: center;
+			margin: 10px;
+		}
+		p{
+			margin: 20px;
+		}
+
+
+
+		.menu{
+			width: 100px;
+			position: absolute;
+			/*absolute是为了菜单在屏幕中的定位*/
+			background-color: #eee;
+			border:1px solid #ccc;
+			box-shadow: 0 0 5px rgba(0,0,0,0.5);
+			padding: 10px 10px;
+		}
+		.menu li {
+			list-style-type: none;
+			margin: 5px 0;
+			width: 100%;
+		}
+		.menu li a{
+			text-decoration: none;
+			color: #000;
+			width: 100%;
+			text-align: center;
+		}
+		.menu li:hover,  .menu li:active{
+			background-color: #67abe0;
+			color: white;
+		}
