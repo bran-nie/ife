@@ -1,0 +1,26 @@
+  html{
+  	background-color: #5fc3d0;
+  }
+
+  .main{
+  	padding: 10px 0;
+  	border:1px solid #9cc769;
+  	text-align: center;
+  	width: 50%;
+  	margin: 20vh  auto;
+  	background-color: #fff;
+  	box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.3);
+
+  }
+
+  button {
+  	border:none;
+  	color: #fff;
+  	background: #5fc3d0;
+  }
+  input{
+  	width: 50%;
+  }
+
+  .numRe span{
+  }
